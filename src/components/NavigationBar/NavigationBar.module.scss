@@ -1,0 +1,26 @@
+.nav {
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo,
+.list {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  gap: 10px;
+}
+.img {
+}
+.title {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+}
+.list {
+  gap: 16px;
+}
+.item {
+}

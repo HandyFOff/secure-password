@@ -1,0 +1,14 @@
+.header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.logo {
+  cursor: pointer;
+}
+.btn-menu {
+  cursor: pointer;
+  background-color: transparent;
+}

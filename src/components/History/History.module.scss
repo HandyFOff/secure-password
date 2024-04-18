@@ -1,0 +1,87 @@
+.history {
+  background-color: #000518;
+  border-radius: 10px;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.breadcrumbsInfo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 100%;
+  & > span {
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
+.btn-delete {
+  border-radius: 5px;
+  padding: 5px 12px;
+  box-shadow: 0 3px 4px 0 rgba(255, 255, 255, 0.1);
+  background-color: #9c0000;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.separate-vertical {
+  height: 70%;
+  width: 1px;
+  background-color: rgb(255, 255, 255, 0.1);
+}
+.filters {
+  padding: 12px;
+  display: flex;
+  justify-content: end;
+  border-top: 1px solid rgba(135, 135, 135, 0.1);
+}
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  & > span {
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  & > input {
+    width: 22px;
+    height: 22px;
+    padding: 2px;
+    appearance: none;
+    background-color: #ffffff;
+    border-radius: 2px;
+
+    &:checked {
+      background-color: #011c7a;
+      position: relative;
+      &::before {
+        content: url("../../../public/assets/icons/checkmark.svg");
+        position: absolute;
+        top: 3px;
+        left: 6px;
+      }
+    }
+  }
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  height: 100%;
+  overflow-y: scroll;
+}

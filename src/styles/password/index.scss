@@ -1,0 +1,10 @@
+.warning > .very-low {
+  & > svg {
+    & > path {
+      stroke: #f00;
+    }
+  }
+
+  & > span {
+  }
+}

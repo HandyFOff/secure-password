@@ -1,0 +1,31 @@
+/* ======Миксины====== */
+@import 'mixins.scss';
+/* ======/Миксины====== */
+
+/* ======Шрифты====== */
+@import 'fonts.scss';
+/* ======/Шрифты====== */
+
+/* ======Переменные====== */
+@import 'variables.scss';
+
+$font: Roboto;
+$dfont: 14px;
+
+/* ======/Переменные====== */
+
+/* ======Обнуление====== */
+@import 'null.scss';
+/* ======/Обнуление====== */
+
+body {
+    font-family: $font;
+    background-color: #000823;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 10px;
+}

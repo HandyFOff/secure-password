@@ -1,0 +1,93 @@
+.form {
+  background-color: #000518;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.password {
+  border: 1px solid #ffffff;
+  padding: 16px 10px;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  & > span {
+    background-color: transparent;
+    font-size: 18px;
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  & > img {
+    cursor: pointer;
+  }
+}
+.warning {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  & > span {
+    color: #3bb800;
+  }
+}
+.btn {
+  background-color: #011c7a;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  box-shadow: 0px 3px 5px rgb(255, 255, 255, 0.1);
+}
+.btn-generate {
+  border-radius: 10px;
+  padding: 10px 0;
+}
+
+.warning.very-low,
+.warning.low {
+  & > svg {
+    & > path {
+      stroke: #9c0000;
+    }
+  }
+
+  & > span {
+    color: #9c0000;
+  }
+}
+
+.warning.medium {
+  & > svg {
+    & > path {
+      stroke: #cab82c;
+    }
+  }
+
+  & > span {
+    color: #cab82c;
+  }
+}
+
+.warning.high,
+.warning.very-high {
+  & > svg {
+    & > path {
+      stroke: #3bb800;
+    }
+  }
+
+  & > span {
+    color: #3bb800;
+  }
+}

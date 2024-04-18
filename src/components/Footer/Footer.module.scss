@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.title {
+  color: #878787;
+  font-size: 12px;
+
+  &>b {
+    color: #ffffff;
+    font-weight: bold;
+  }
+}
