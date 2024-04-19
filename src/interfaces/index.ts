@@ -4,3 +4,16 @@ export interface AlertsInterface {
 }
 
 export type FiltersType = Record<string, boolean>
+
+export interface PasswordType {
+  id: string;
+  password: string;
+  strength: string;
+  timestamp: string;
+}
+
+export interface HistoryStorageType {
+  historyStorage: PasswordType[];
+  addPassword: ({password, strength, timestamp}: PasswordType) => void;
+  removePasswords: (passwords: PasswordType[]) => void
+}

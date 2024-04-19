@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./Success.module.scss";
-import { AlertsContext } from "../../../context";
+import { AlertsContext } from "../../../context/alerts";
 
 interface Props {
   text: string;

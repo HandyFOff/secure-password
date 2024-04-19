@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { checkPassword } from "../utils/checkPassword";
+import HistoryContext from "../context/history";
+import { formatDataTime } from "../utils/formatDataTime";
+import { v4 as uuidv4 } from 'uuid';
 
-export type Filters = Record<string, boolean>
+export type Filters = Record<string, boolean>;
 
 export const usePassword = () => {
   const [password, setPassword] = React.useState("");
+  const history = useContext(HistoryContext);
   const [passwordSecurity, setPasswordSecurity] = React.useState("Very Low");
   const [passwordLength, setPasswordLength] = React.useState(12);
   const [filters, setFilters] = React.useState<Filters>({
@@ -44,9 +48,15 @@ export const usePassword = () => {
         array.push(numbers[Math.floor(Math.random() * numbers.length)]);
     }
 
-    setPassword(array.join(""));
-    setPasswordSecurity(checkPassword(array.join("")));
-  }, [filters, passwordLength, symbols]);
+    const strength = checkPassword(array.join(""));
+    const password = array.join("");
+    const timestamp = formatDataTime(new Date());
+    const id = uuidv4();
+
+    setPassword(password);
+    setPasswordSecurity(strength);
+    history?.addPassword({id, password, strength, timestamp});
+  }, [filters, passwordLength, symbols, history]);
 
   return {
     password,

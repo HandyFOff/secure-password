@@ -1,5 +1,5 @@
 import { ReactElement, createContext, useState } from "react";
-import { AlertsInterface } from "../interfaces";
+import { AlertsInterface } from "../../interfaces";
 
 interface Props {
   children: ReactElement;

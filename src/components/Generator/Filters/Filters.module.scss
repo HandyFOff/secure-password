@@ -25,6 +25,8 @@
     background-color: #ffffff;
     border-radius: 2px;
 
+    cursor: pointer;
+
     &:checked {
       background-color: #011c7a;
       position: relative;
@@ -97,6 +99,8 @@
     height: 14px;
     border-radius: 50%;
     border: 2px solid #011c7a;
+    padding: 6px;
+    margin: -6px;
   }
 }
 .btn-reset {

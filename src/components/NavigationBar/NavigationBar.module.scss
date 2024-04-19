@@ -12,7 +12,9 @@
 .logo {
   gap: 10px;
 }
-.img {
+.logo,
+.item {
+  cursor: pointer;
 }
 .title {
   font-size: 18px;
@@ -21,6 +23,4 @@
 }
 .list {
   gap: 16px;
-}
-.item {
 }

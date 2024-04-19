@@ -7,8 +7,6 @@ export const checkPassword = (password: string) => {
   if (password.match(/[0-9]+/g)) strength++;
   if (password.match(/[-!$%^&*()_+|~=`{}\\[\]:";'<>?,.\\/]/g)) strength++;
 
-  console.log(strength);
-
   switch (strength) {
     case 0:
       return "Very Low";

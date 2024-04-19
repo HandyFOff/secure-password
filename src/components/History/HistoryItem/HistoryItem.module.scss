@@ -19,7 +19,6 @@
   font-size: 11px;
   &>span {
     font-weight: 300;
-    color: #3BB800;
   }
 }
 .time {
@@ -31,6 +30,10 @@
   display: flex;
   gap: 20px;
   align-items: center;
+
+  &>img {
+    cursor: pointer;
+  }
 }
 .checkbox {
   & > input {
@@ -40,6 +43,7 @@
     appearance: none;
     background-color: #ffffff;
     border-radius: 2px;
+    cursor: pointer;
 
     &:checked {
       background-color: #011c7a;
@@ -51,5 +55,26 @@
         left: 6px;
       }
     }
+  }
+}
+
+
+.strength.very-low,
+.strength.low {
+  & > span {
+    color: #9c0000;
+  }
+}
+
+.strength.medium {
+  & > span {
+    color: #cab82c;
+  }
+}
+
+.strength.high,
+.strength.very-high {
+  & > span {
+    color: #3bb800;
   }
 }
