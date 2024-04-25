@@ -1,8 +1,7 @@
-import { useContext, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import styles from "./History.module.scss";
 import HistoryItem from "./HistoryItem";
 import HistoryContext from "../../context/history";
-import { PasswordType } from "../../interfaces";
 
 interface Props {
   setSelectedTab: (prev: string) => void;
@@ -10,20 +9,28 @@ interface Props {
 
 const History: React.FC<Props> = ({ setSelectedTab }) => {
   const history = useContext(HistoryContext);
-  const [selectedPasswords, setSelectedPasswords] = useState<PasswordType[]>(
-    []
-  );
+  const [selectedPasswords, setSelectedPasswords] = useState<string[]>([]);
 
-  const [isAllSelected, setIsAllSelected] = useState(false);
+  const handleChecboxes = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const isSelected = e.target.checked;
 
-  const handlerSelectedPasswords = (item: PasswordType) => {
-    if (!selectedPasswords.find((password) => password === item)) {
-      setSelectedPasswords((prev) => [...prev, item]);
+    if (isSelected) {
+      setSelectedPasswords((prev) => [...prev, value]);
     } else {
-      const filtred = selectedPasswords.filter(
-        (password) => password.id !== item.id
-      );
-      setSelectedPasswords(filtred);
+      setSelectedPasswords((prev) => prev.filter((item) => item !== value));
+    }
+  };
+
+  const selectAll = (e: ChangeEvent<HTMLInputElement>) => {
+    const isChecked = e.target.checked;
+
+    if (history) {
+      if (isChecked) {
+        setSelectedPasswords(history.historyStorage.map((item) => item.id));
+      } else {
+        setSelectedPasswords([]);
+      }
     }
   };
 
@@ -42,11 +49,7 @@ const History: React.FC<Props> = ({ setSelectedTab }) => {
             <span>0 / 3</span>
           </div>
         </div>
-        <button
-          type="button"
-          className={styles["btn-delete"]}
-          onClick={() => history?.removePasswords(selectedPasswords)}
-        >
+        <button type="button" className={styles["btn-delete"]} onClick={() => history?.removePasswords(selectedPasswords)}>
           <span>Delete</span>
           <img src="assets/icons/trash.svg" alt="Delete it" />
         </button>
@@ -54,10 +57,7 @@ const History: React.FC<Props> = ({ setSelectedTab }) => {
       <div className={styles.filters}>
         <div className={styles.filter}>
           <span>Select all</span>
-          <input onClick={() => setIsAllSelected((prev) => !prev)}
-            type="checkbox"
-            placeholder="+"
-          />
+          <input type="checkbox" placeholder="+" onChange={selectAll} />
         </div>
       </div>
       <div className={styles.content}>
@@ -66,9 +66,8 @@ const History: React.FC<Props> = ({ setSelectedTab }) => {
             <HistoryItem
               key={item.id}
               item={item}
-              handlerSelectedPasswords={handlerSelectedPasswords}
+              handleChecboxes={handleChecboxes}
               selectedPasswords={selectedPasswords}
-              isAllSelected={isAllSelected}
             />
           );
         })}

@@ -1,19 +1,18 @@
-import { useContext, useState } from "react";
+import { ChangeEvent, useContext } from "react";
 import { PasswordType } from "../../../interfaces";
 import styles from "./HistoryItem.module.scss";
 import { AlertsContext } from "../../../context/alerts";
 
 interface Props {
   item: PasswordType;
-  handlerSelectedPasswords: (item: PasswordType) => void;
-  selectedPasswords: PasswordType[];
-  isAllSelected: boolean;
+  handleChecboxes: (e: ChangeEvent<HTMLInputElement>) => void;
+  selectedPasswords: string[];
 }
 
 const HistoryItem: React.FC<Props> = ({
   item,
-  handlerSelectedPasswords,
-  isAllSelected,
+  handleChecboxes,
+  selectedPasswords
 }) => {
   const alert = useContext(AlertsContext);
 
@@ -21,8 +20,6 @@ const HistoryItem: React.FC<Props> = ({
     navigator.clipboard.writeText(item.password);
     alert?.handleAlert();
   };
-
-  const [isChecked, isSetChecked] = useState(false);
 
   return (
     <div className={styles.item}>
@@ -48,13 +45,13 @@ const HistoryItem: React.FC<Props> = ({
         <div className={styles["separate-vertical"]}></div>
         <div
           className={styles.checkbox}
-          onClick={() => handlerSelectedPasswords(item)}
         >
           <input
             type="checkbox"
             placeholder="+"
-            checked={isChecked || isAllSelected}
-            onChange={() => isSetChecked((prev) => !prev)}
+            value={item.id}
+            checked={selectedPasswords.includes(item.id)}
+            onChange={handleChecboxes}
           />
         </div>
       </div>

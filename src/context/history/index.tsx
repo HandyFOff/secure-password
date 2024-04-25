@@ -19,15 +19,11 @@ export const HistoryProvider: React.FC<Props> = ({ children }) => {
     ]);
   };
 
-  const removePasswords = (passwords: PasswordType[]) => {
-    for (let i = 0; i < passwords.length; i++) {
-      if (historyStorage.find((item) => item.id === passwords[i].id)) {
-        setHistoryStorage((prev) => prev.filter(
-          (item) => item.id !== passwords[i].id
-        ));
-      }
+  const removePasswords = (list_id: string[]) => {
+    for (let i = 0; i < list_id.length; i++) {
+      setHistoryStorage((prev) => prev.filter((item) => item.id !== list_id[i]))
     }
-  };
+  }
 
   return (
     <HistoryContext.Provider

@@ -15,5 +15,5 @@ export interface PasswordType {
 export interface HistoryStorageType {
   historyStorage: PasswordType[];
   addPassword: ({password, strength, timestamp}: PasswordType) => void;
-  removePasswords: (passwords: PasswordType[]) => void
+  removePasswords: (passwords: string[]) => void;
 }
