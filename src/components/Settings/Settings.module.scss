@@ -1,0 +1,81 @@
+.content {
+  background-color: #000518;
+  border-radius: 20px;
+  padding: 10px 0;
+}
+.top {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 5px 10px 15px 10px;
+}
+.back-arrow {
+}
+.topTitle {
+  font-weight: 500;
+  font-size: 16px;
+  color: #ffffff;
+}
+.settings {
+}
+.itemContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &>#sun {
+    width: 22px;
+    height: 22px;
+  }
+}
+.item {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.itemTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.title {
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff;
+
+  &.bold {
+    font-weight: 600;
+  }
+}
+.description {
+  font-weight: 400;
+  font-size: 12px;
+  color: #bbb;
+}
+.setting {
+}
+
+.checkbox {
+  & > input {
+    width: 22px;
+    height: 22px;
+    padding: 2px;
+    appearance: none;
+    background-color: #ffffff;
+    border-radius: 2px;
+    cursor: pointer;
+
+    &:checked {
+      background-color: #011c7a;
+      position: relative;
+      &::before {
+        content: url("../../../public/assets/icons/checkmark.svg");
+        position: absolute;
+        top: 3px;
+        left: 6px;
+      }
+    }
+  }
+}

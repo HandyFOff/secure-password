@@ -21,11 +21,11 @@ const Generator: React.FC = () => {
     navigator.clipboard.writeText(password);
     alert?.handleAlert();
   };
-
+  
   return (
     <div className={styles.form}>
       <div className={styles.password}>
-        <span>{password ? password : "Here will be password"}</span>
+        <span>{password ? password : 'Here will be your password'}</span>
         <img src="assets/icons/copy.svg" alt="Copy it" onClick={copyPassword} />
       </div>
       {password && (

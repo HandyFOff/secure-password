@@ -1,5 +1,5 @@
 import React, { ReactElement, createContext } from "react";
-import { HistoryStorageType, PasswordType } from "../../interfaces";
+import { HistoryStorageSettings, HistoryStorageType, PasswordType } from "../../interfaces";
 
 const HistoryContext = createContext<HistoryStorageType | undefined>(undefined);
 
@@ -11,6 +11,16 @@ export const HistoryProvider: React.FC<Props> = ({ children }) => {
   const [historyStorage, setHistoryStorage] = React.useState<PasswordType[]>(
     []
   );
+
+  const [settings, setSettings] = React.useState<HistoryStorageSettings>({
+    history: false,
+    theme: true,
+    salt: false,
+  });
+
+  const changeSettings = (key: string, value: boolean) => {
+    setSettings((prev) => ({...prev, [key]: value}));
+  }
 
   const addPassword = ({ id, password, strength, timestamp }: PasswordType) => {
     setHistoryStorage((prev) => [
@@ -27,7 +37,7 @@ export const HistoryProvider: React.FC<Props> = ({ children }) => {
 
   return (
     <HistoryContext.Provider
-      value={{ historyStorage, addPassword, removePasswords }}
+      value={{ historyStorage, addPassword, removePasswords, settings, changeSettings }}
     >
       {children}
     </HistoryContext.Provider>

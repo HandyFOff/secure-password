@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { checkPassword } from "../utils/checkPassword";
 import HistoryContext from "../context/history";
 import { formatDataTime } from "../utils/formatDataTime";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 export type Filters = Record<string, boolean>;
 
@@ -55,7 +55,10 @@ export const usePassword = () => {
 
     setPassword(password);
     setPasswordSecurity(strength);
-    history?.addPassword({id, password, strength, timestamp});
+    if (history?.settings.history) {
+      history?.addPassword({ id, password, strength, timestamp });
+    }
+    
   }, [filters, passwordLength, symbols, history]);
 
   return {

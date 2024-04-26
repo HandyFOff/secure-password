@@ -2,6 +2,7 @@ import { ChangeEvent, useContext, useState } from "react";
 import styles from "./History.module.scss";
 import HistoryItem from "./HistoryItem";
 import HistoryContext from "../../context/history";
+import { PasswordType } from "../../interfaces";
 
 interface Props {
   setSelectedTab: (prev: string) => void;
@@ -49,7 +50,11 @@ const History: React.FC<Props> = ({ setSelectedTab }) => {
             <span>0 / 3</span>
           </div>
         </div>
-        <button type="button" className={styles["btn-delete"]} onClick={() => history?.removePasswords(selectedPasswords)}>
+        <button
+          type="button"
+          className={styles["btn-delete"]}
+          onClick={() => history?.removePasswords(selectedPasswords)}
+        >
           <span>Delete</span>
           <img src="assets/icons/trash.svg" alt="Delete it" />
         </button>
@@ -61,16 +66,16 @@ const History: React.FC<Props> = ({ setSelectedTab }) => {
         </div>
       </div>
       <div className={styles.content}>
-        {history?.historyStorage.map((item) => {
-          return (
-            <HistoryItem
-              key={item.id}
-              item={item}
-              handleChecboxes={handleChecboxes}
-              selectedPasswords={selectedPasswords}
-            />
-          );
-        })}
+        {history?.historyStorage.map((item: PasswordType) => {
+            return (
+              <HistoryItem
+                key={item.id}
+                item={item}
+                handleChecboxes={handleChecboxes}
+                selectedPasswords={selectedPasswords}
+              />
+            );
+          })}
       </div>
     </div>
   );

@@ -20,8 +20,19 @@ $dfont: 14px;
 
 body {
     font-family: $font;
-    background-color: #000823;
     color: #ffffff;
+}
+
+#root {
+    height: 100%;
+}
+
+.wrapper {
+    background-color: #000823;
+    height: 100%;
+    &.light {
+        background-color: #ffffff;
+    }
 }
 
 .container {

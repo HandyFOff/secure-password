@@ -28,7 +28,7 @@ const NavigationBar: React.FC<Props> = ({ setSelectedTab }) => {
         <li className={styles.item} onClick={() => setSelectedTab("history")}>
           <img src="assets/icons/history.svg" alt="Passwords's history" />
         </li>
-        <li className={styles.item}>
+        <li className={styles.item} onClick={() => setSelectedTab("settings")}>
           <img src="assets/icons/settings.svg" alt="Settings" />
         </li>
       </ul>
